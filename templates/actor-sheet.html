@@ -7,16 +7,59 @@
             <h1 class="charname">
                 <input name="name" type="text" value="{{data.name}}" placeholder="Name" />
             </h1>
+
+            <div class="resources grid grid-2col">
+                <div class="resource flex-group-center">
+                    <label for="data.health.value" class="resource-label">Health</label>
+                    <div class="resource-content flexrow flex-center flex-between">
+                        <input type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number" />
+                        <span> / </span>
+                        <input type="text" name="data.health.max" value="{{data.health.max}}" data-dtype="Number" />
+                    </div>
+                </div>
+                <div class="resource flex-group-center">
+                    <label for="data.power.value" class="resource-label">Power</label>
+                    <div class="resource-content flexrow flex-center flex-between">
+                        <input type="text" name="data.power.value" value="{{data.power.value}}" data-dtype="Number" />
+                        <span> / </span>
+                        <input type="text" name="data.power.max" value="{{data.power.max}}" data-dtype="Number" />
+                    </div>
+                </div>
+            </div>
+            <div class="abilities grid grid-3col">
+                {{#each systemData.abilities as |ability key|}}
+                <div class="ability flexrow flex-group-center">
+                    <label for="systemData.abilities.{{key}}.value" class="resource-label">{{key}}</label>
+                    <input type="text" name="systemData.abilities.{{key}}.value" value="{{ability.value}}"
+                        data-dtype="Number" />
+                    <span class="ability-mod">{{numberFormat ability.mod decimals=0 sign=true}}</span>
+                </div>
+                {{/each}}
+            </div>
+
+            <!-- <ul class="attributes flexrow">
+                <li class="attribute">
+                    <h4 class="ability-name">{{localize "TNT.Strength.Label"}}</h4>
+                    <div class="ability-value flexrow" data-tooltip="Ability score">
+                        <input type="text" name="system.strength.value" value="{{systemData.strength.value}}"
+                            placeholder="10" />
+                        <span class="ability-mod" data-tooltip="Ability modifier">
+                            {{numberFormat system.strength.value decimals=0 sign=true}}
+                        </span>
+                    </div>
+                </li>
+            </ul>
+
             <div class="resource">
-                <input type="number" name="system.health.value" value="{{systemData.health.value}}"/>
+                <input type="number" name="system.health.value" value="{{systemData.health.value}}" />
                 <span> / </span>
-                <input type="number" name="system.health.max" value="{{systemData.health.max}}"/>
+                <input type="number" name="system.health.max" value="{{systemData.health.max}}" />
             </div>
             <div class="resource">
-                <input type="number" name="system.power.value" value="{{systemData.power.value}}"/>
+                <input type="number" name="system.power.value" value="{{systemData.power.value}}" />
                 <span> / </span>
-                <input type="number" name="system.power.max" value="{{systemData.power.max}}"/>
-            </div>
+                <input type="number" name="system.power.max" value="{{systemData.power.max}}" />
+            </div> -->
         </div>
     </header>
 
@@ -46,45 +89,51 @@
                     <div class="item-buttons">
                         {{#each item.system.attributes as |itemAttr key|}}
                         {{#if itemAttr.dtype}}
-                            {{#if itemAttr.isFormula}}
-                                {{!-- Use the items.name.key format for shorthand. --}}
-                                {{#if ../../shorthand}}
-                                <button class="item-button rollable" data-roll="@items.{{slugify item.name}}.{{key}}" data-label="{{ itemAttr.label }}"
-                                    title="{{itemAttr.value}}">{{itemAttr.label}}</button>
-                                {{!-- Use the items.name.attributes.key.value format otherwise. --}}
-                                {{else}}
-                                <button class="item-button rollable"
-                                    data-roll="@items.{{slugify item.name}}.attributes.{{key}}.value" data-label="{{ itemAttr.label }}"
-                                    title="{{itemAttr.value}}">{{itemAttr.label}}</button>
-                                {{/if}}
-                            {{/if}}
+                        {{#if itemAttr.isFormula}}
+                        {{!-- Use the items.name.key format for shorthand. --}}
+                        {{#if ../../shorthand}}
+                        <button class="item-button rollable" data-roll="@items.{{slugify item.name}}.{{key}}"
+                            data-label="{{ itemAttr.label }}" title="{{itemAttr.value}}">{{itemAttr.label}}</button>
+                        {{!-- Use the items.name.attributes.key.value format otherwise. --}}
                         {{else}}
-                            {{#each itemAttr as |itemGroupedAttr groupedKey|}}
-                                {{#if itemGroupedAttr.isFormula}}
-                                    {{!-- Use the items.name.key format for shorthand. --}}
-                                    {{#if ../../../shorthand}}
-                                    <button class="item-button rollable" data-roll="@items.{{slugify item.name}}.{{key}}.{{groupedKey}}" data-label="{{ itemGroupedAttr.label }}"
-                                        title="{{itemGroupedAttr.value}}">{{itemGroupedAttr.label}}</button>
-                                    {{!-- Use the items.name.attributes.key.value format otherwise. --}}
-                                    {{else}}
-                                    <button class="item-button rollable"
-                                        data-roll="@items.{{slugify item.name}}.attributes.{{key}}.{{groupedKey}}.value" data-label="{{ itemGroupedAttr.label }}"
-                                        title="{{itemGroupedAttr.value}}">{{itemGroupedAttr.label}}</button>
-                                    {{/if}}
-                                {{/if}}
-                            {{/each}}
+                        <button class="item-button rollable"
+                            data-roll="@items.{{slugify item.name}}.attributes.{{key}}.value"
+                            data-label="{{ itemAttr.label }}" title="{{itemAttr.value}}">{{itemAttr.label}}</button>
+                        {{/if}}
+                        {{/if}}
+                        {{else}}
+                        {{#each itemAttr as |itemGroupedAttr groupedKey|}}
+                        {{#if itemGroupedAttr.isFormula}}
+                        {{!-- Use the items.name.key format for shorthand. --}}
+                        {{#if ../../../shorthand}}
+                        <button class="item-button rollable"
+                            data-roll="@items.{{slugify item.name}}.{{key}}.{{groupedKey}}"
+                            data-label="{{ itemGroupedAttr.label }}"
+                            title="{{itemGroupedAttr.value}}">{{itemGroupedAttr.label}}</button>
+                        {{!-- Use the items.name.attributes.key.value format otherwise. --}}
+                        {{else}}
+                        <button class="item-button rollable"
+                            data-roll="@items.{{slugify item.name}}.attributes.{{key}}.{{groupedKey}}.value"
+                            data-label="{{ itemGroupedAttr.label }}"
+                            title="{{itemGroupedAttr.value}}">{{itemGroupedAttr.label}}</button>
+                        {{/if}}
+                        {{/if}}
+                        {{/each}}
                         {{/if}}
                         {{/each}}
                     </div>
                     <div class="item-controls">
-                        <a class="item-control" title="{{ localize "SIMPLE.ItemEdit" }}" data-action="edit"><i class="fas fa-edit"></i></a>
-                        <a class="item-control" title="{{ localize "SIMPLE.ItemDelete" }}" data-action="delete"><i class="fas fa-trash"></i></a>
+                        <a class="item-control" title="{{ localize " SIMPLE.ItemEdit" }}" data-action="edit"><i
+                                class="fas fa-edit"></i></a>
+                        <a class="item-control" title="{{ localize " SIMPLE.ItemDelete" }}" data-action="delete"><i
+                                class="fas fa-trash"></i></a>
                     </div>
                 </li>
                 {{/each}}
             </ol>
             <p>
-                <a class="item-control" title="{{ localize "SIMPLE.ItemCreate" }}" data-action="create"><i class="fas fa-plus"></i> {{ localize "SIMPLE.ItemCreate" }}</a>
+                <a class="item-control" title="{{ localize " SIMPLE.ItemCreate" }}" data-action="create"><i
+                        class="fas fa-plus"></i> {{ localize "SIMPLE.ItemCreate" }}</a>
             </p>
         </div>
 
@@ -99,15 +148,18 @@
             </header>
 
             {{!-- Render the attribute list partial. --}}
-            {{> "systems/worldbuilding/templates/parts/sheet-attributes.html" attributes=systemData.ungroupedAttributes dtypes=dtypes}}
+            {{> "systems/torches-and-terrors/templates/parts/sheet-attributes.html"
+            attributes=systemData.ungroupedAttributes dtypes=dtypes}}
 
             {{!-- Render the grouped attributes partial and control. --}}
             <div class="groups">
-                {{> "systems/worldbuilding/templates/parts/sheet-groups.html" attributes=systemData.groupedAttributes groups=systemData.groups dtypes=dtypes}}
+                {{> "systems/torches-and-terrors/templates/parts/sheet-groups.html"
+                attributes=systemData.groupedAttributes groups=systemData.groups dtypes=dtypes}}
 
                 <div class="group-controls flexrow">
-                    <input class="group-prefix" type="text" value=""/>
-                    <a class="button group-control" data-action="create-group"><i class="fas fa-plus"></i>Add Attribute Group</a>
+                    <input class="group-prefix" type="text" value="" />
+                    <a class="button group-control" data-action="create-group"><i class="fas fa-plus"></i>Add Attribute
+                        Group</a>
                 </div>
             </div>
         </div>

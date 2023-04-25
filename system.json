@@ -1,9 +1,9 @@
 {
-  "id": "worldbuilding",
-  "version": "0.7.2",
-  "title": "Simple World-Building",
-  "url": "https://gitlab.com/foundrynet/worldbuilding/",
-  "description": "A minimalist game system which provides configurable Actor and Item templates to support free-form system agnostic game-play.",
+  "id": "torches-and-terrors",
+  "version": "0.0.1",
+  "title": "Torches & Terrors",
+  "url": "https://github.com/ChaseHuegel/torches-and-terrors",
+  "description": "A minimalist TTRPG.",
   "license": "LICENSE.txt",
   "authors": [
     {
@@ -11,8 +11,12 @@
       "url": "https://foundryvtt.com"
     }
   ],
-  "esmodules": ["module/simple.js"],
-  "styles": ["styles/simple.css"],
+  "esmodules": [
+    "module/simple.js"
+  ],
+  "styles": [
+    "styles/simple.css"
+  ],
   "packs": [],
   "languages": [
     {
@@ -30,6 +34,6 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
-  "manifest": "https://raw.githubusercontent.com/foundryvtt/worldbuilding/master/system.json",
-  "download": "https://github.com/foundryvtt/worldbuilding/archive/refs/tags/release-072.zip"
+  "manifest": "",
+  "download": ""
 }
