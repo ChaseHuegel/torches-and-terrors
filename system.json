@@ -1,22 +1,25 @@
 {
-  "id": "torches-and-terrors",
-  "version": "0.0.1",
+  "id": "tnt1e",
   "title": "Torches & Terrors",
-  "url": "https://github.com/ChaseHuegel/torches-and-terrors",
-  "description": "A minimalist TTRPG.",
-  "license": "LICENSE.txt",
+  "description": "The Torches & Terrors system for FoundryVTT!",
+  "version": "0.0.1",
+  "compatibility": {
+    "minimum": 10,
+    "verified": 10,
+    "maximum": 10
+  },
   "authors": [
     {
-      "name": "Atropos",
-      "url": "https://foundryvtt.com"
+      "name": "Asacolips"
     }
   ],
   "esmodules": [
-    "module/simple.js"
+    "module/tnt1e.mjs"
   ],
   "styles": [
-    "styles/simple.css"
+    "css/tnt1e.css"
   ],
+  "scripts": [],
   "packs": [],
   "languages": [
     {
@@ -25,15 +28,13 @@
       "path": "lang/en.json"
     }
   ],
-  "compatibility": {
-    "minimum": "10",
-    "verified": "10.288",
-    "maximum": "10"
-  },
   "gridDistance": 5,
   "gridUnits": "ft",
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
+  "url": "",
   "manifest": "",
-  "download": ""
+  "download": "",
+  "license": "LICENSE.txt",
+  "changelog": "CHANGELOG.md"
 }

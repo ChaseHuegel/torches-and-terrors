@@ -225,19 +225,19 @@
   text-align: center;
 }
 
-/* Styles limited to boilerplate sheets */
-.boilerplate {
+/* Styles limited to tnt1e sheets */
+.tnt1e {
   /* ----------------------------------------- */
   /*  Items Lists                              */
   /* ----------------------------------------- */
-  /* Example style for Boilerplate (can be removed if not needed) */
+  /* Example style for Torches N' Terrors (can be removed if not needed) */
 }
 
-.boilerplate .item-form {
+.tnt1e .item-form {
   font-family: "Roboto", sans-serif;
 }
 
-.boilerplate .sheet-header {
+.tnt1e .sheet-header {
   -webkit-box-flex: 0;
   -ms-flex: 0 auto;
   flex: 0 auto;
@@ -257,7 +257,7 @@
   margin-bottom: 10px;
 }
 
-.boilerplate .sheet-header .profile-img {
+.tnt1e .sheet-header .profile-img {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 100px;
   flex: 0 0 100px;
@@ -265,50 +265,50 @@
   margin-right: 10px;
 }
 
-.boilerplate .sheet-header .header-fields {
+.tnt1e .sheet-header .header-fields {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
 }
 
-.boilerplate .sheet-header h1.charname {
+.tnt1e .sheet-header h1.charname {
   height: 50px;
   padding: 0px;
   margin: 5px 0;
   border-bottom: 0;
 }
 
-.boilerplate .sheet-header h1.charname input {
+.tnt1e .sheet-header h1.charname input {
   width: 100%;
   height: 100%;
   margin: 0;
 }
 
-.boilerplate .sheet-tabs {
+.tnt1e .sheet-tabs {
   -webkit-box-flex: 0;
   -ms-flex: 0;
   flex: 0;
 }
 
-.boilerplate .sheet-body,
-.boilerplate .sheet-body .tab,
-.boilerplate .sheet-body .tab .editor {
+.tnt1e .sheet-body,
+.tnt1e .sheet-body .tab,
+.tnt1e .sheet-body .tab .editor {
   height: 100%;
 }
 
-.boilerplate .tox .tox-editor-container {
+.tnt1e .tox .tox-editor-container {
   background: #fff;
 }
 
-.boilerplate .tox .tox-edit-area {
+.tnt1e .tox .tox-edit-area {
   padding: 0 8px;
 }
 
-.boilerplate .resource-label {
+.tnt1e .resource-label {
   font-weight: bold;
 }
 
-.boilerplate .items-header {
+.tnt1e .items-header {
   height: 28px;
   margin: 2px 0;
   padding: 0;
@@ -320,12 +320,12 @@
   font-weight: bold;
 }
 
-.boilerplate .items-header>* {
+.tnt1e .items-header>* {
   font-size: 14px;
   text-align: center;
 }
 
-.boilerplate .items-header .item-name {
+.tnt1e .items-header .item-name {
   font-weight: bold;
   padding-left: 5px;
   text-align: left;
@@ -334,7 +334,7 @@
   display: flex;
 }
 
-.boilerplate .items-list {
+.tnt1e .items-list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -343,13 +343,13 @@
   color: #444;
 }
 
-.boilerplate .items-list .item-list {
+.tnt1e .items-list .item-list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.boilerplate .items-list .item-name {
+.tnt1e .items-list .item-name {
   -webkit-box-flex: 2;
   -ms-flex: 2;
   flex: 2;
@@ -365,14 +365,14 @@
   display: flex;
 }
 
-.boilerplate .items-list .item-name h3,
-.boilerplate .items-list .item-name h4 {
+.tnt1e .items-list .item-name h3,
+.tnt1e .items-list .item-name h4 {
   margin: 0;
   white-space: nowrap;
   overflow-x: hidden;
 }
 
-.boilerplate .items-list .item-controls {
+.tnt1e .items-list .item-controls {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -384,13 +384,13 @@
   justify-content: flex-end;
 }
 
-.boilerplate .items-list .item-controls a {
+.tnt1e .items-list .item-controls a {
   font-size: 12px;
   text-align: center;
   margin: 0 6px;
 }
 
-.boilerplate .items-list .item {
+.tnt1e .items-list .item {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -398,15 +398,15 @@
   border-bottom: 1px solid #c9c7b8;
 }
 
-.boilerplate .items-list .item:last-child {
+.tnt1e .items-list .item:last-child {
   border-bottom: none;
 }
 
-.boilerplate .items-list .item .item-name {
+.tnt1e .items-list .item .item-name {
   color: #191813;
 }
 
-.boilerplate .items-list .item .item-name .item-image {
+.tnt1e .items-list .item .item-name .item-image {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 30px;
   flex: 0 0 30px;
@@ -416,14 +416,14 @@
   margin-right: 5px;
 }
 
-.boilerplate .items-list .item-prop {
+.tnt1e .items-list .item-prop {
   text-align: center;
   border-left: 1px solid #c9c7b8;
   border-right: 1px solid #c9c7b8;
   font-size: 12px;
 }
 
-.boilerplate .items-list .items-header {
+.tnt1e .items-list .items-header {
   height: 28px;
   margin: 2px 0;
   padding: 0;
@@ -435,33 +435,33 @@
   font-weight: bold;
 }
 
-.boilerplate .items-list .items-header>* {
+.tnt1e .items-list .items-header>* {
   font-size: 12px;
   text-align: center;
 }
 
-.boilerplate .items-list .items-header .item-name {
+.tnt1e .items-list .items-header .item-name {
   padding-left: 5px;
   text-align: left;
 }
 
-.boilerplate .item-formula {
+.tnt1e .item-formula {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 200px;
   flex: 0 0 200px;
   padding: 0 8px;
 }
 
-.boilerplate .effects .item .effect-source,
-.boilerplate .effects .item .effect-duration,
-.boilerplate .effects .item .effect-controls {
+.tnt1e .effects .item .effect-source,
+.tnt1e .effects .item .effect-duration,
+.tnt1e .effects .item .effect-controls {
   text-align: center;
   border-left: 1px solid #c9c7b8;
   border-right: 1px solid #c9c7b8;
   font-size: 12px;
 }
 
-.boilerplate .effects .item .effect-controls {
+.tnt1e .effects .item .effect-controls {
   border: none;
 }
 
