@@ -11,5 +11,6 @@ export const preloadHandlebarsTemplates = async function () {
     "systems/tnt1e/templates/actor/parts/actor-items.html",
     "systems/tnt1e/templates/actor/parts/actor-spells.html",
     "systems/tnt1e/templates/actor/parts/actor-effects.html",
+    "systems/tnt1e/templates/actor/parts/actor-proficiencies.html",
   ]);
 };

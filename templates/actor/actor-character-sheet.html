@@ -3,58 +3,112 @@
   {{!-- Sheet Header --}}
   <header class="sheet-header">
     <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
-    <div class="header-fields">
-      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name" /></h1>
-      {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-      use both the "grid" and "grid-Ncol" class where "N" can be any number
-      from 1 to 12 and will create that number of columns. --}}
-      <div class="resources grid grid-3col">
 
-        {{!-- "flex-group-center" is also defined in the _grid.scss file
-        and it will add a small amount of padding, a border, and will
-        center all of its child elements content and text. --}}
-        <div class="resource flex-group-center">
-          <label for="system.health.value" class="resource-label">Health</label>
-          <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="system.health.value" value="{{system.health.value}}" data-dtype="Number" />
-            <span> / </span>
-            <input type="text" name="system.health.max" value="{{system.health.max}}" data-dtype="Number" />
+    <div class="header-fields flexcol">
+      <div class="looserow">
+        <div class="resource looserow flex-group-center">
+          <label for="actor.name" class="resource-label">Name</label>
+          <div class="looserow">
+            <input name="name" type="text" value="{{actor.name}}" placeholder="Name" size="40" />
           </div>
         </div>
 
-        <div class="resource flex-group-center">
-          <label for="system.power.value" class="resource-label">Power</label>
-          <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="system.power.value" value="{{system.power.value}}" data-dtype="Number" />
-            <span> / </span>
-            <input type="text" name="system.power.max" value="{{system.power.max}}" data-dtype="Number" />
+        <div class="resource looserow flex-group-center">
+          <label for="system.attributes.origin" class="resource-label">Origin</label>
+          <div class="looserow">
+            <input type="text" name="system.attributes.origin" value="{{system.attributes.origin}}" data-dtype="String"
+              size="12" style="text-align: left;" />
           </div>
         </div>
 
-        <div class="resource flex-group-center">
-          <label for="system.attributes.level.value" class="resource-label">Level</label>
-          <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="system.attributes.level.value" value="{{system.attributes.level.value}}"
-              data-dtype="Number" />
+        <div class="resource looserow flex-group-center">
+          <label for="system.attributes.class" class="resource-label">Class</label>
+          <div class="looserow">
+            <input type="text" name="system.attributes.class" value="{{system.attributes.class}}" data-dtype="String"
+              size="12" />
           </div>
         </div>
-
       </div>
 
+      <div class="resources tightrow" style="margin-top: 10px;">
+        <div class="resources tightrow">
+          <div class="resource flexcol flex-group-center">
+            <label for="system.hp.value" class="resource-label">HP</label>
+            <div class="tightrow">
+              <input type="text" name="system.hp.value" value="{{system.hp.value}}" data-dtype="Number" size="2" />
+              <label class="fraction">/</label>
+              <input type="text" name="system.hp.max" value="{{system.hp.max}}" data-dtype="Number" size="2" />
+            </div>
+          </div>
+        </div>
+
+        <div class="resource flexcol flex-group-center">
+          <label for="system.ac" class="resource-label">AC</label>
+          <div class="tightrow">
+            <input type="text" name="system.ac" value="{{system.ac}}" data-dtype="Number" size="2" />
+          </div>
+        </div>
+
+        <div class="resource flexcol flex-group-center">
+          <label for="system.init" class="resource-label">INIT</label>
+          <div class="tightrow">
+            <input type="text" name="system.init" value="{{system.init}}" data-dtype="Number" size="2" />
+          </div>
+        </div>
+
+        <div class="resource flexcol flex-group-center">
+          <label for="system.spd" class="resource-label">SPD</label>
+          <div class="tightrow">
+            <input type="text" name="system.spd" value="{{system.spd}}" data-dtype="Number" size="2" />
+          </div>
+        </div>
+
+        <div class="resource flexcol flex-group-center">
+          <label for="system.attributes.xp" class="resource-label">XP</label>
+          <div class="tightrow">
+            <input type="text" name="system.attributes.xp" value="{{system.attributes.xp}}" data-dtype="Number"
+              size="5" />
+          </div>
+        </div>
+
+        <div class="resource flexcol flex-group-center">
+          <label for="system.attributes.lvl" class="resource-label">LVL</label>
+          <div class="tightrow">
+            <input type="text" name="system.attributes.lvl" value="{{system.attributes.lvl}}" data-dtype="Number"
+              size="2" />
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
+  {{!-- Abilities --}}
   <div class="sheet-header">
-    <div class="abilities flexrow">
-      {{#each system.abilities as |ability key|}}
-      <div class="ability flexcol flex-group-center">
-        <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge"
-          data-roll="d20+@abilities.{{key}}.mod" data-label="{{ability.label}}">{{ability.label}} {{numberFormat
-          ability.mod decimals=0 sign=true}}</label>
-        <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"
-          placeholder="10" />
+    <div class="header-fields">
+      <div class="abilities flexrow">
+        <div class="ability flexcol flex-group-center">
+          <label class="resource-label flexlarge">PROF</label>
+          <label for="system.attributes.prof" class="resource-label"
+            style="font-size: 200%;border: 2px groove #eeede0;padding: 5px;">{{numberFormat
+            system.attributes.prof
+            decimals=0
+            sign=true}}</label>
+        </div>
+
+        {{#each system.abilities as |ability key|}}
+        <div class="ability flexcol flex-group-center">
+          <label for="system.abilities.{{key}}.max" class="resource-label rollable flexlarge"
+            data-roll="d20+@abilities.{{key}}.mod" data-label="{{ability.label}}">{{ability.label}} {{numberFormat
+            ability.mod decimals=0 sign=true}}</label>
+          <div class="flexcol" style="scale: 125%;">
+            <input class="resource-label" type="text" name="system.abilities.{{key}}.max" value="{{ability.max}}"
+              data-dtype="Number" placeholder="10" title="{{ability.label}} Score" size="2" />
+            <input style="scale: 60%;" type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}"
+              data-dtype="Number" title="Current {{ability.label}}" placeholder="{{ability.max}}" size="2" />
+          </div>
+        </div>
+        {{/each}}
       </div>
-      {{/each}}
     </div>
   </div>
 
@@ -62,58 +116,48 @@
   <nav class="sheet-tabs tabs" data-group="primary">
     {{!-- Default tab is specified in actor-sheet.mjs --}}
     <a class="item" data-tab="features">Features</a>
-    <a class="item" data-tab="description">Description</a>
-    <a class="item" data-tab="items">Items</a>
+    <a class="item" data-tab="proficiencies">Proficiencies</a>
+    <a class="item" data-tab="items">Inventory</a>
     <a class="item" data-tab="spells">Spells</a>
-    <a class="item" data-tab="effects">Effects</a>
+    <!-- <a class="item" data-tab="effects">Effects</a> -->
+    <a class="item" data-tab="description">Description</a>
+    <a class="item" data-tab="notes">Notes</a>
   </nav>
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
-
-    {{!-- Owned Features Tab --}}
+    {{!-- Features Tab --}}
     <div class="tab features" data-group="primary" data-tab="features">
       <section class="grid grid-3col">
-        <!-- <aside class="sidebar">
-          {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-          use both the "grid" and "grid-Ncol" class where "N" can be any number
-          from 1 to 12 and will create that number of columns. --}}
-          <div class="abilities flexcol">
-            {{#each system.abilities as |ability key|}}
-            <div class="ability flexrow flex-group-center">
-              <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
-                data-roll="d20+@abilities.{{key}}.mod" data-label="{{ability.label}}">{{ability.label}}</label>
-              <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
-              <span class="ability-mod rollable" data-roll="d20+@abilities.{{key}}.mod"
-                data-label="{{ability.label}}">{{numberFormat ability.mod decimals=0 sign=true}}</span>
-            </div>
-            {{/each}}
-          </div>
-        </aside> -->
-
         {{!-- For the main features list, span the right two columns --}}
         <section class="main grid-span-3">
           {{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in
           module/helpers/templates.mjs --}}
           {{> "systems/tnt1e/templates/actor/parts/actor-features.html"}}
         </section>
-
       </section>
     </div>
 
     {{!-- Biography Tab --}}
     <div class="tab biography" data-group="primary" data-tab="description">
-      {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to
+      {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data
+      to
       the rollData property. --}}
-      {{editor system.biography target="system.biography" rollData=rollData button=true owner=owner editable=editable}}
+      {{editor system.biography target="system.biography" rollData=rollData button=true owner=owner
+      editable=editable}}
     </div>
 
-    {{!-- Owned Items Tab --}}
+    {{!-- Notes Tab --}}
+    <div class="tab biography" data-group="primary" data-tab="notes">
+      {{editor system.notes target="system.notes" rollData=rollData button=true owner=owner editable=editable}}
+    </div>
+
+    {{!-- Inventory Tab --}}
     <div class="tab items" data-group="primary" data-tab="items">
       {{> "systems/tnt1e/templates/actor/parts/actor-items.html"}}
     </div>
 
-    {{!-- Owned Spells Tab --}}
+    {{!-- Spells Tab --}}
     <div class="tab spells" data-group="primary" data-tab="spells">
       {{> "systems/tnt1e/templates/actor/parts/actor-spells.html"}}
     </div>
@@ -121,6 +165,15 @@
     {{!-- Active Effects Tab --}}
     <div class="tab effects flexcol" data-group="primary" data-tab="effects">
       {{> "systems/tnt1e/templates/actor/parts/actor-effects.html"}}
+    </div>
+
+    {{!-- Features Tab --}}
+    <div class="tab features" data-group="primary" data-tab="proficiencies">
+      <section class="grid grid-3col">
+        <section class="main grid-span-3">
+          {{> "systems/tnt1e/templates/actor/parts/actor-proficiencies.html"}}
+        </section>
+      </section>
     </div>
 
   </section>

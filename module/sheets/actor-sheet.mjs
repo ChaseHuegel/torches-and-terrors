@@ -84,17 +84,12 @@ export class TNTActorSheet extends ActorSheet {
     // Initialize containers.
     const gear = [];
     const features = [];
+    const features2 = [];
+    const features3 = [];
+    const proficiencies = [];
     const spells = {
       0: [],
-      1: [],
-      2: [],
-      3: [],
-      4: [],
-      5: [],
-      6: [],
-      7: [],
-      8: [],
-      9: []
+      1: []
     };
 
     // Iterate through items, allocating to containers
@@ -108,17 +103,30 @@ export class TNTActorSheet extends ActorSheet {
       else if (i.type === 'feature') {
         features.push(i);
       }
+      else if (i.type === 'feature2') {
+        features2.push(i);
+      }
+      else if (i.type === 'feature3') {
+        features3.push(i);
+      }
       // Append to spells.
       else if (i.type === 'spell') {
         if (i.system.spellLevel != undefined) {
           spells[i.system.spellLevel].push(i);
         }
       }
+      // Append to proficiencies.
+      else if (i.type === 'proficiency') {
+        proficiencies.push(i);
+      }
     }
 
     // Assign and return
     context.gear = gear;
     context.features = features;
+    context.features2 = features2;
+    context.features3 = features3;
+    context.proficiencies = proficiencies;
     context.spells = spells;
   }
 

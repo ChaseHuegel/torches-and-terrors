@@ -225,6 +225,22 @@
   text-align: center;
 }
 
+.tightrow {
+  display: inline-flex;
+  padding-inline: 5px;
+}
+
+.looserow {
+  display: inline-flex;
+  padding-inline: 2px;
+}
+
+.fraction {
+  font-size: 20px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
 /* Styles limited to tnt1e sheets */
 .tnt1e {
   /* ----------------------------------------- */
@@ -377,8 +393,8 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 100px;
-  flex: 0 0 100px;
+  -ms-flex: 0 0 20px;
+  flex: 0 0 20px;
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
