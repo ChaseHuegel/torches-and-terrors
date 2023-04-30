@@ -5,27 +5,36 @@
     <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
 
     <div class="header-fields flexcol">
-      <div class="looserow">
+      <div class="looserow flex-group-center">
         <div class="resource looserow flex-group-center">
-          <label for="actor.name" class="resource-label">Name</label>
           <div class="looserow">
-            <input name="name" type="text" value="{{actor.name}}" placeholder="Name" size="40" />
+            <input name="name" type="text" value="{{actor.name}}" placeholder="Name" size="80" />
+          </div>
+        </div>
+      </div>
+
+      <div class="looserow" style="margin-top: 10px;">
+        <div class="resource looserow flex-group-center">
+          <label for="system.attributes.background" class="resource-label">BGR</label>
+          <div class="looserow">
+            <input type="text" name="system.attributes.background" value="{{system.attributes.background}}"
+              data-dtype="String" size="18" style="text-align: left;" />
           </div>
         </div>
 
         <div class="resource looserow flex-group-center">
-          <label for="system.attributes.origin" class="resource-label">Origin</label>
+          <label for="system.attributes.origin" class="resource-label">ORI</label>
           <div class="looserow">
             <input type="text" name="system.attributes.origin" value="{{system.attributes.origin}}" data-dtype="String"
-              size="12" style="text-align: left;" />
+              size="20" style="text-align: left;" />
           </div>
         </div>
 
         <div class="resource looserow flex-group-center">
-          <label for="system.attributes.class" class="resource-label">Class</label>
+          <label for="system.attributes.class" class="resource-label">CLA</label>
           <div class="looserow">
             <input type="text" name="system.attributes.class" value="{{system.attributes.class}}" data-dtype="String"
-              size="12" />
+              size="12" style="text-align: left;" />
           </div>
         </div>
       </div>
