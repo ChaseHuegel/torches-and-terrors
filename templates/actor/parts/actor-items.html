@@ -1,22 +1,29 @@
 <div class="flexrow">
   <div class="resource looserow">
-    <label for="system.attributes.prep" class="resource-label tightrow flex-group-center">PREP</label>
-    <div class="resource">
+    <div class="resource looserow flex-group-center">
+      <label for="system.attributes.prep" class="resource-label tightrow">PREP</label>
       <input type="text" name="system.attributes.prep" value="{{system.attributes.prep}}" data-dtype="Number"
         size="2" />
     </div>
-    <input type="text" style="text-align: left;" name="system.attributes.preptypes"
-      value="{{system.attributes.preptypes}}" data-dtype="String" />
 
-    <div class="resource tightrow flex-group-center">
+    <div class="resource looserow flex-group-center">
+      <input type="text" style="text-align: left;" name="system.attributes.preptypes"
+        value="{{system.attributes.preptypes}}" data-dtype="String" size="40" />
+    </div>
+
+    <div class="resource looserow flex-group-center">
       <label for="system.attributes.currency.trifles" class="resource-label tightrow">t</label>
       <input type="text" name="system.attributes.currency.trifles" value="{{system.attributes.currency.trifles}}"
         data-dtype="Number" size="4" />
+    </div>
 
+    <div class="resource looserow flex-group-center">
       <label for="system.attributes.currency.marks" class="resource-label tightrow">m</label>
       <input type="text" name="system.attributes.currency.marks" value="{{system.attributes.currency.marks}}"
         data-dtype="Number" size="4" />
+    </div>
 
+    <div class="resource looserow flex-group-center">
       <label for="system.attributes.currency.crowns" class="resource-label tightrow">C</label>
       <input type="text" name="system.attributes.currency.crowns" value="{{system.attributes.currency.crowns}}"
         data-dtype="Number" size="4" />
