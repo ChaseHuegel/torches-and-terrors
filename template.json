@@ -29,7 +29,8 @@
         "origin": "",
         "class": "",
         "archetype": "",
-        "backgrounbd": ""
+        "background": "",
+        "player": ""
       },
       "abilities": {
         "str": {
